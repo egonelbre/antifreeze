@@ -1,5 +1,8 @@
 # antifreeze
+
 antifreeze is a package that detects goroutines that have been waiting for too long.
+
+**Warning: this package is alpha and may not work as intended.**
 
 You can exclude functions that may block forever with `antifreeze.Exclude` and `antifreeze.ExcludeNamed`.
 
