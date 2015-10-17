@@ -1,14 +1,11 @@
-// +build ignore
-
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"time"
 
 	"github.com/egonelbre/antifreeze"
-
-	_ "net/http/pprof"
 )
 
 func init() {
@@ -29,5 +26,6 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("R:", r)
 	<-ch
 }

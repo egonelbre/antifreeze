@@ -6,18 +6,17 @@ antifreeze is a package that detects goroutines that have been waiting for too l
 
 You can exclude functions that may block forever with `antifreeze.Exclude` and `antifreeze.ExcludeNamed`.
 
-Example program that will panic after 1min, but only if you have made a request to it.
+Example program that will panic ~1min after you have made a request to it.
 
 ``` go
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"time"
 
 	"github.com/egonelbre/antifreeze"
-
-	_ "net/http/pprof"
 )
 
 func init() {
@@ -38,6 +37,7 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("R:", r)
 	<-ch
 }
 ```
