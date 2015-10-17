@@ -42,7 +42,8 @@ func SetBufferSize(size int) {
 	mu.Unlock()
 }
 
-// SetFrozenLimit sets the frozen limit for goroutines.
+// SetFrozenLimit sets the limit after which the goroutine should be considered
+// as frozen.
 func SetFrozenLimit(limit time.Duration) {
 	mu.Lock()
 	if limit < time.Minute {

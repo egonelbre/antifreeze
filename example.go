@@ -4,11 +4,16 @@ package main
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/egonelbre/antifreeze"
 
 	_ "net/http/pprof"
 )
+
+func init() {
+	antifreeze.SetFrozenLimit(1 * time.Minute)
+}
 
 var ch = make(chan int)
 
