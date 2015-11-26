@@ -107,7 +107,8 @@ func skiptrace(scanner *bufio.Scanner) {
 }
 
 func isfaulting(kind string) bool {
-	return kind == "chan send" || kind == "chan receive"
+	return kind == "chan send" || kind == "chan receive" ||
+		kind == "semacquire"
 }
 
 func check() {
